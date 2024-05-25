@@ -17,31 +17,18 @@ let tasks=[
 
 export default function ShowReactBtns() {
 const[listOfTasks,setListOfTasks]=useState(tasks)
-const filter =(filterByText) =>{
-    switch (filterByText) {
-        case "All":
-            setListOfTasks(tasks)
-            break;
-            case "Completed":
-                setListOfTasks(tasks.filter((t) =>t.status))
-                break;
-                case "Incompleted":
-                    setListOfTasks(tasks.filter((t) => !t.status))
-                    break;
-    
-        default:
-            setListOfTasks(tasks)
-            break;
-    }
+const filter =(status) =>{
+    setListOfTasks(tasks.filter((item)=>status ==item.status))
+   
 }
 
 
   return (
    <>
     <div className='flex'> 
- <div onClick={()=>filter("All")}><TodoFormBtns btntext="All" color="blue"/></div>
- <div onClick={()=>filter("Completed")}><TodoFormBtns btntext="Completed" color="green"/></div>
- <div onClick={() =>filter("Incompleted")}><TodoFormBtns btntext="Incompleted" color="red"/></div>
+ <div onClick={()=>{filter()}}><TodoFormBtns btntext="All" color="blue"/></div>
+ <div onClick={()=>{filter(true)}}><TodoFormBtns btntext="Completed" color="green"/></div>
+ <div onClick={() =>{filter(false)}}><TodoFormBtns btntext="Incompleted" color="red"/></div>
  </div>
  <TodoReactBtn data={listOfTasks}/>
    </>
