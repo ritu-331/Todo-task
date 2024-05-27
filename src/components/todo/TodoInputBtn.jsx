@@ -7,8 +7,13 @@ export default function TodoInputBtn({ addwork }) {
         setInputField(e.target.value)
     }
 
+    
 
     const addNewWork = () => {
+        if(inputField==""){
+            alert("Please Enter Any Task")
+            return
+        }
         addwork ({
             task: inputField,
             time: `${new Date().getHours()}: ${new Date().getMinutes()}`,
