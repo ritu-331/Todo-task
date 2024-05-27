@@ -1,11 +1,12 @@
 import React from 'react'
-import TodoContatiner from './todo/TodoContatiner'
+
+import TodoForm from './todo/TodoForm'
 
 
 function Main() {
   return (
   <>
-  <TodoContatiner/>
+ <TodoForm/>
  
   </>
   )

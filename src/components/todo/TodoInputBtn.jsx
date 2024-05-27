@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 
 export default function TodoInputBtn({ addwork }) {
     const [inputField, setInputField] = useState()
-    const changeInputWork = (element) => {
-        setInputField(element.target.value)
+    
+    const changeInputWork = (e) => {
+        setInputField(e.target.value)
     }
 
 
@@ -11,7 +12,7 @@ export default function TodoInputBtn({ addwork }) {
         addwork ({
             task: inputField,
             time: `${new Date().getHours()}: ${new Date().getMinutes()}`,
-            status: false
+            status: true
             
         })
         setInputField("")

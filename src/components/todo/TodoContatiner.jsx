@@ -6,11 +6,11 @@ import TodoList from './TodoList'
 
 
 var list=[
-  { Task:"wakeup", isComplete:false},
-  { Task:"run", isComplete:true},
-  { Task:"ready", isComplete:false},
-  { Task:"lunch", isComplete:false},
-  { Task:"study", isComplete:false},
+  { Task:"" },
+  { Task:"" },
+  { Task:""},
+  { Task:"" },
+  { Task:"" },
 ]
 function TodoContatiner  () {
 const [Task, setTask] =useState(list)

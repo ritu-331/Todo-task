@@ -5,21 +5,11 @@ import TodoFormBtns from './TodoFormBtns'
 import TodoInputBtn from './TodoInputBtn'
 
 
-let tasks=[
-  {
-      task:"First - ",
-      time:"7 AM",
-      status:false
-  },
-  {
-      task:"Second - ",
-      time:"8 AM",
-      status:true
-  }
-]
+
 
 function TodoForm() {
   const[listOfTasks,setListOfTasks]=useState([])
+  
   
   const filterL =(status) =>{
       setListOfTasks(tasks.filter((item)=>status == undefined ? true : status==item.status))
@@ -38,6 +28,7 @@ let index = listOfTasks.indexOf(taskToUpdate)
 listOfTasks[index] ={...taskToUpdate, status:!taskToUpdate.status}
 setListOfTasks([...listOfTasks])
 }
+
 
   return (
     <>
