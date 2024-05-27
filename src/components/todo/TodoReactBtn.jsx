@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteBtn from './DeleteBtn'
 
 
-function TodoReactBtn({data,updatework }) {
+function TodoReactBtn({data,updatework,deletework }) {
   return (
     <>
     
@@ -23,7 +23,7 @@ data.map((item) =>
 </svg></button>
 }
 
-<DeleteBtn hidden={item.status}/>
+<DeleteBtn hidden={item.status} deletework={() =>{deletework(item)}}/>
 
 </div></div>
 

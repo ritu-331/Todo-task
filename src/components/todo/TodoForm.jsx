@@ -9,26 +9,34 @@ import TodoInputBtn from './TodoInputBtn'
 
 function TodoForm() {
   const[listOfTasks,setListOfTasks]=useState([])
+  const[templist,setTemplist]=useState([])
   
   
   const filterL =(status) =>{
-      setListOfTasks(tasks.filter((item)=>status == undefined ? true : status==item.status))
+      setListOfTasks(templist.filter((item)=>status == undefined ? true : status==item.status))
      
   }
 
 
 
 function addnewwork(newtask) {
-  listOfTasks.push( newtask)
-setListOfTasks([...listOfTasks])
+  setTemplist([...templist,newtask])
+setListOfTasks([...templist,newtask])
 }
 
 const updatework=(taskToUpdate)=>{
-let index = listOfTasks.indexOf(taskToUpdate)
-listOfTasks[index] ={...taskToUpdate, status:!taskToUpdate.status}
-setListOfTasks([...listOfTasks])
+let index = templist.indexOf(taskToUpdate)
+templist[index] ={...taskToUpdate, status:!taskToUpdate.status}
+setTemplist([...templist])
+setListOfTasks([...templist])
 }
 
+const deletework=(taskToUpdate)=>{
+  let index = templist.indexOf(taskToUpdate)
+  templist.splice(index,1)
+  setTemplist([...templist])
+  setListOfTasks([...templist])
+  }
 
   return (
     <>
@@ -42,7 +50,7 @@ setListOfTasks([...listOfTasks])
  <TodoFormBtns btntext="Completed" color="green" filter={() =>{filterL(true)}}/>
  <TodoFormBtns btntext="Incompleted" color="red" filter={() =>{filterL(false)}}/>
  </div>
- <TodoReactBtn data={listOfTasks} updatework={updatework}/>
+ <TodoReactBtn data={listOfTasks} updatework={updatework} deletework={deletework}/>
  
  </div>
   </div>    
